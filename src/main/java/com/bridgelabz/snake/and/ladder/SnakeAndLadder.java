@@ -5,7 +5,7 @@ public class SnakeAndLadder {
     public static final int IS_LADDER = 1;
     public static final int IS_SNAKE = 0;
 
-    static String turn = "Player 1";
+    static String turn = "player1";
 
     public static void main(String[] args) {
         System.out.println("Welcome to Snake And Ladder Program");
@@ -34,33 +34,35 @@ public class SnakeAndLadder {
 
 
         if (player1Position == WINNING_POSITION) {
-            System.out.println("player1 win the game");
             System.out.println("player1 dice count " + player1DiceCount);
+            System.out.println("player1 win the game");
+
+
         } else {
-            System.out.println("player2 win the game");
             System.out.println("player2 dice count " + player2DiceCount);
+            System.out.println("player2 win the game");
+
         }
         System.out.println("Total dice count " + diceCount);
         System.out.println("player1 position is " + player1Position);
         System.out.println("player2 position is " + player2Position);
 
+
     }
 
-    private static int getPosition(int Position) {
+    private static int getPosition(int position) {
         int diceNumber = (int) Math.floor(Math.random() * 10) % 6 + 1;
-        //System.out.println("diceNumber is : " + diceNumber);
+        System.out.println("diceNumber is : " + diceNumber);
         int option = (int) Math.floor(Math.random() * 10) % 2;
         System.out.println("selected player option : " + option);
 
-        int position = 0;
         if (option == IS_SNAKE) {
             System.out.println("Snake for the Player");
             if (position - diceNumber > 0) {
                 position = position - diceNumber;
-                System.out.println("Position for the Player after the snake : " + position);
-               }
-              }
-        else if (option == IS_LADDER) {
+
+            }
+        } else if (option == IS_LADDER) {
             System.out.println("Ladder for the Player");
             if (turn.equals("player1")) {
                 turn = "player1";
@@ -69,7 +71,9 @@ public class SnakeAndLadder {
             }
             if (position + diceNumber <= 100) {
                 position = position + diceNumber;
-                System.out.println("Position for the Player after the snake : " + position);
+
             }
-            return position;
-           }
+        }
+        return position;
+    }
+}
